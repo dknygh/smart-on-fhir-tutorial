@@ -50,7 +50,7 @@
           var hdl = byCodes('2085-9');
           var ldl = byCodes('2089-1');
           var temp = byCodes('8310-5');
-          var allergy= allergies.text
+          var allergy= '';
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
@@ -72,7 +72,7 @@
           p.temp = getQuantityValueAndUnit(temp[0]);
           console.log(allergies);
           for (let i = 0; i < allergies.length; i++) {
-         p.allergy = p.allergy.concat(allergies[i],</br>);
+            var allergies += allergies[i].code.text + "<br>";
         }
          
           
@@ -145,7 +145,7 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#temp').html(p.temp);
-    $('#allergy').html(p.allergy);
+    $('#allergy').html(allergy);
   };
 
 })(window);
