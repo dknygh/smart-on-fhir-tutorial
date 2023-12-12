@@ -72,7 +72,7 @@
           p.temp = getQuantityValueAndUnit(temp[0]);
           console.log(allergies);
           for (let i = 0; i < allergies.length; i++) {
-            var allergies += allergies[i].code.text + "<br>";
+            p.allergies += allergies[i].code.text + "<br>";
         }
          
           
@@ -145,7 +145,7 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#temp').html(p.temp);
-    $('#allergy').html(allergy);
+    $('#allergy').html(p.allergies);
   };
 
 })(window);
