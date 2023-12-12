@@ -26,8 +26,7 @@
                     type: 'AllergyIntolerance',
                     query: {
                       "clinical-status": "active"
-                      }
-                     
+                      }                     
                 });
 
         $.when(pt, obv,alg).fail(onError);
