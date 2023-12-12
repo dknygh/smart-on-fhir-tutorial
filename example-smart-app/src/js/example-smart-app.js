@@ -72,7 +72,7 @@
           p.temp = getQuantityValueAndUnit(temp[0]);
           console.log(allergies);
           for (let i = 0; i < allergies.length; i++) {
-         p.allergy = p.allergy.concat(allergy,</br>);
+         p.allergy = p.allergy.concat(allergy[i],</br>);
         }
          
           
