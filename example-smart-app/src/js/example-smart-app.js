@@ -32,6 +32,7 @@
         $.when(pt, obv,alg).fail(onError);
 
         $.when(pt, obv,alg).done(function(patient, obv,allergies) {
+          
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
 
@@ -49,7 +50,7 @@
           var hdl = byCodes('2085-9');
           var ldl = byCodes('2089-1');
           var temp = byCodes('8310-5');
-        
+          var allergy= allergies.text
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
@@ -57,7 +58,7 @@
           p.fname = fname;
           p.lname = lname;
           p.height = getQuantityValueAndUnit(height[0]);
-
+          
           if (typeof systolicbp != 'undefined')  {
             p.systolicbp = systolicbp;
           }
@@ -69,8 +70,12 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           p.temp = getQuantityValueAndUnit(temp[0]);
-          console.log(allergies)
-            
+          console.log(allergies);
+          for (let i = 0; i < allergies.length; i++) {
+         p.allergy = p.allergy.concat(allergy,</br>);
+        }
+         
+          
           ret.resolve(p);
         });
       } else {
@@ -95,6 +100,7 @@
       ldl: {value: ''},
       hdl: {value: ''},
       temp: {value: ''},
+      allergy: {value: ''},
     };
   }
 
@@ -139,6 +145,7 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#temp').html(p.temp);
+    $('#allergy').html(p.allergy);
   };
 
 })(window);
