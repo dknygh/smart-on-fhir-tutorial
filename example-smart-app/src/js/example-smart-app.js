@@ -71,6 +71,7 @@
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           p.temp = getQuantityValueAndUnit(temp[0]);
           console.log(allergies);
+          p.allergies = '';
           for (let i = 0; i < allergies.length; i++) {
             p.allergies += allergies[i].code.text + "<br>";
         }
